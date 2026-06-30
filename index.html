@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EKANDIWILL - Physiotherapy & Health Care</title>
+<meta name="description" content="EKANDIWILL Physiotherapy & Health Care — registered (RC 1062669) physiotherapy, rehabilitation and acupuncture clinic. Book an appointment online or on WhatsApp.">
+<meta name="theme-color" content="#6b4c8a">
+<meta property="og:title" content="EKANDIWILL Physiotherapy & Health Care">
+<meta property="og:description" content="Professional physiotherapy, rehabilitation and acupuncture care. Book your appointment online or via WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1706353399656-210cca727a33?auto=format&fit=crop&w=1200&q=75">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚕️</text></svg>">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --primary:#6b4c8a;
+  --primary-light:#8b6ca8;
+  --accent:#4db8a8;
+  --accent-dark:#3da89a;
+  --whatsapp:#25d366;
+  --whatsapp-dark:#1ebe57;
+  --text-dark:#2c3e50;
+  --text-light:#7f8c8d;
+  --bg-light:#f8f9fa;
+  --white:#ffffff;
+  --border:#e1e8ed;
+  --header-h:72px;
+}
+
+html { scroll-behavior:smooth; }
+
+body {
+  font-family:-apple-system, BlinkMacSystemFont,'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height:1.6;
+  color:var(--text-dark);
+  background:var(--white);
+  overflow-x:hidden;
+}
+
+section { scroll-margin-top:var(--header-h); }
+
+.sr-only {
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
+/* Header & Nav */
+header {
+  background:var(--white);
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:200;
+  padding:1rem 1.5rem;
+  transition:box-shadow 0.3s ease;
+}
+header.scrolled { box-shadow:0 4px 16px rgba(0,0,0,0.08); }
+
+.header-container {
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo {
+  font-size:1.5rem;
+  font-weight:700;
+  color:var(--primary);
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+}
+
+nav a {
+  color:var(--text-dark);
+  text-decoration:none;
+  font-size:0.95rem;
+  margin:0 1.25rem;
+  transition:color 0.3s;
+}
+nav a:hover, nav a:focus-visible { color:var(--accent); }
+
+nav a.nav-cta {
+  margin-left:0.75rem;
+  background:var(--accent);
+  color:var(--white);
+  padding:0.55rem 1.25rem;
+  border-radius:6px;
+  font-weight:600;
+}
+nav a.nav-cta:hover, nav a.nav-cta:focus-visible { background:var(--accent-dark); color:var(--white); }
+
+.hamburger {
+  display:none;
+  flex-direction:column;
+  justify-content:space-between;
+  width:26px;
+  height:19px;
+  background:transparent;
+  border:none;
+  cursor:pointer;
+  padding:0;
+}
+.hamburger:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.hamburger span {
+  display:block;
+  height:3px;
+  width:100%;
+  background:var(--primary);
+  border-radius:2px;
+  transition:transform 0.3s ease, opacity 0.3s ease;
+}
+.hamburger.active span:nth-child(1) { transform:translateY(8px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity:0; }
+.hamburger.active span:nth-child(3) { transform:translateY(-8px) rotate(-45deg); }
+
+@media (max-width:768px) {
+  .hamburger { display:flex; }
+  nav {
+    position:fixed;
+    top:var(--header-h);
+    left:0;
+    right:0;
+    background:var(--white);
+    box-shadow:0 16px 30px rgba(0,0,0,0.12);
+    max-height:0;
+    overflow:hidden;
+    visibility:hidden;
+    transition:max-height 0.35s ease, visibility 0s linear 0.35s;
+  }
+  nav.open {
+    max-height:420px;
+    visibility:visible;
+    transition:max-height 0.35s ease, visibility 0s linear 0s;
+  }
+  nav a {
+    display:block;
+    margin:0;
+    padding:1rem 1.5rem;
+    border-bottom:1px solid var(--border);
+    text-align:center;
+  }
+  nav a:last-child { border-bottom:none; }
+  nav a.nav-cta { margin:0.75rem 1.5rem; border-radius:6px; }
+}
+
+/* Hero */
+.hero {
+  background:linear-gradient(135deg, rgba(107,76,138,0.93) 0%, rgba(139,108,168,0.88) 100%), url('https://images.unsplash.com/photo-1706353399656-210cca727a33?auto=format&fit=crop&w=1600&q=75') center/cover no-repeat;
+  color:var(--white);
+  padding:5rem 1.5rem;
+  text-align:center;
+}
+.hero-content { max-width:700px; margin:0 auto; }
+
+.trust-badge {
+  display:inline-block;
+  background:rgba(255,255,255,0.15);
+  border:1px solid rgba(255,255,255,0.35);
+  padding:0.4rem 1rem;
+  border-radius:50px;
+  font-size:0.85rem;
+  margin-bottom:1.25rem;
+  backdrop-filter:blur(4px);
+}
+
+.hero h1 { font-size:clamp(1.8rem, 4.5vw, 2.6rem); margin-bottom:1rem; font-weight:700; }
+.hero p { font-size:clamp(1rem, 2vw, 1.15rem); margin-bottom:2rem; opacity:0.95; }
+.hero-actions { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+
+.cta-btn {
+  background:var(--accent);
+  color:var(--white);
+  padding:0.85rem 2rem;
+  border:none;
+  border-radius:6px;
+  font-size:1rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:all 0.3s;
+  text-decoration:none;
+  display:inline-block;
+}
+.cta-btn:hover { background:var(--accent-dark); transform:translateY(-2px); box-shadow:0 8px 16px rgba(0,0,0,0.15); }
+.cta-btn.cta-whatsapp { background:var(--whatsapp); }
+.cta-btn.cta-whatsapp:hover { background:var(--whatsapp-dark); }
+
+/* Container */
+.container { max-width:1200px; margin:0 auto; padding:0 1.5rem; }
+section { padding:4rem 0; }
+section h2 { font-size:clamp(1.6rem,3.5vw,2rem); margin-bottom:3rem; text-align:center; color:var(--primary); }
+
+/* Fade in */
+.fade-in { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity:1; transform:translateY(0); }
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto; }
+  .fade-in { opacity:1; transform:none; transition:none; }
+  .whatsapp-float { animation:none; }
+}
+
+/* Services */
+.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem; }
+.service-card { background:var(--bg-light); padding:2rem; border-radius:8px; border-left:4px solid var(--accent); transition:all 0.3s; text-align:center; }
+.service-card:hover { transform:translateY(-4px); box-shadow:0 12px 24px rgba(0,0,0,0.08); }
+.service-icon { font-size:2.5rem; margin-bottom:1rem; }
+.service-card h3 { color:var(--primary); margin-bottom:0.5rem; font-size:1.2rem; }
+.service-card p { color:var(--text-light); font-size:0.95rem; }
+
+/* About */
+#about { background:var(--bg-light); }
+.about-content { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+.about-text h3 { color:var(--primary); font-size:1.5rem; margin-bottom:1rem; }
+.about-text p { color:var(--text-light); margin-bottom:1rem; line-height:1.8; }
+.about-list { list-style:none; margin-top:1.5rem; }
+.about-list li { padding:0.5rem 0; color:var(--text-dark); padding-left:1.5rem; position:relative; }
+.about-list li:before { content:"✓"; position:absolute; left:0; color:var(--accent); font-weight:bold; }
+.about-image { border-radius:8px; overflow:hidden; box-shadow:0 12px 30px rgba(0,0,0,0.12); }
+.about-image img { width:100%; height:100%; object-fit:cover; display:block; }
+@media (max-width:768px) { .about-content { grid-template-columns:1fr; } }
+
+/* Gallery */
+.gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; }
+.gallery-item { border-radius:8px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,0.08); background:var(--white); }
+.gallery-item img { width:100%; height:240px; object-fit:cover; display:block; }
+.gallery-item p { padding:1rem; text-align:center; font-weight:600; color:var(--primary); }
+
+/* Testimonials */
+.testimonials-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
+.testimonial { background:var(--white); padding:2rem; border-radius:8px; border:1px solid var(--border); }
+.stars { color:#ffc107; margin-bottom:1rem; font-size:1.1rem; }
+.testimonial p.quote { color:var(--text-light); font-size:0.95rem; margin-bottom:1rem; font-style:italic; }
+.testimonial-author { font-weight:600; color:var(--primary); }
+
+/* Contact */
+#contact { background:linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color:var(--white); }
+#contact h2 { color:var(--white); }
+.contact-wrapper { display:grid; grid-template-columns:1fr 1fr; gap:3rem; max-width:1000px; margin:0 auto; }
+.contact-info { display:flex; flex-direction:column; gap:1.75rem; }
+.contact-item { display:flex; gap:1rem; }
+.contact-item h4 { font-size:1.1rem; margin-bottom:0.3rem; }
+.contact-item p, .contact-item a { opacity:0.9; font-size:0.95rem; color:var(--white); text-decoration:none; }
+.contact-item a:hover { text-decoration:underline; opacity:1; }
+.contact-icon { font-size:1.8rem; flex-shrink:0; }
+
+form { display:flex; flex-direction:column; gap:1.2rem; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+form input, form textarea, form select {
+  padding:0.85rem; border:1px solid rgba(255,255,255,0.3); border-radius:6px;
+  font-size:1rem; background:rgba(255,255,255,0.95); color:var(--text-dark); font-family:inherit;
+}
+form input::placeholder, form textarea::placeholder { color:var(--text-light); }
+form input:focus-visible, form select:focus-visible, form textarea:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+form button {
+  background:var(--accent); color:var(--white); padding:1rem; border:none; border-radius:6px;
+  font-size:1rem; font-weight:600; cursor:pointer; transition:all 0.3s;
+}
+form button:hover { background:var(--accent-dark); transform:translateY(-2px); }
+form button:disabled { opacity:0.7; cursor:not-allowed; transform:none; }
+
+@media (max-width:768px) { .contact-wrapper { grid-template-columns:1fr; } }
+@media (max-width:480px) { .form-row { grid-template-columns:1fr; } }
+
+/* Footer */
+footer { background:var(--text-dark); color:var(--white); text-align:center; padding:2.5rem 1.5rem; }
+footer p { opacity:0.8; font-size:0.9rem; }
+.footer-links { margin:1rem 0; display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap; }
+.footer-links a { color:var(--white); text-decoration:none; opacity:0.8; transition:opacity 0.3s; }
+.footer-links a:hover { opacity:1; }
+.footer-credit { margin-top:1rem; font-size:0.8rem; opacity:0.6; }
+.footer-credit a { color:var(--white); }
+
+/* Messages */
+.success-message, .error-message { display:none; padding:1rem; border-radius:6px; margin-bottom:1rem; text-align:center; }
+.success-message { background:#28a745; color:white; }
+.error-message { background:#dc3545; color:white; }
+.success-message.show, .error-message.show { display:block; }
+
+/* WhatsApp floating button */
+.whatsapp-float {
+  position:fixed; bottom:22px; right:22px; width:58px; height:58px;
+  background:var(--whatsapp); border-radius:50%; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 8px 20px rgba(37,211,102,0.45); z-index:150; text-decoration:none;
+  transition:transform 0.25s ease, background 0.25s ease;
+  animation:pulse-whatsapp 2.5s infinite;
+}
+.whatsapp-float:hover { transform:scale(1.08); background:var(--whatsapp-dark); }
+.whatsapp-float svg { width:28px; height:28px; fill:white; }
+@keyframes pulse-whatsapp {
+  0% { box-shadow:0 0 0 0 rgba(37,211,102,0.55); }
+  70% { box-shadow:0 0 0 14px rgba(37,211,102,0); }
+  100% { box-shadow:0 0 0 0 rgba(37,211,102,0); }
+}
+@media (max-width:480px) {
+  .whatsapp-float { width:50px; height:50px; bottom:16px; right:16px; }
+  .whatsapp-float svg { width:24px; height:24px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <a href="#" class="logo">
+      <span aria-hidden="true">⚕️</span>
+      <span>EKANDIWILL</span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primaryNav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="primaryNav">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-cta">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content fade-in">
+    <span class="trust-badge">✅ Registered Provider · RC 1062669</span>
+    <h1>Professional Physiotherapy Care</h1>
+    <p>Expert treatment for pain relief, injury recovery, and enhanced mobility. Personalized care for your health.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="cta-btn">Book Appointment</a>
+      <a href="https://wa.me/2348032379455?text=Hello%20EKANDIWILL%2C%20I%27d%20like%20to%20book%20an%20appointment." class="cta-btn cta-whatsapp" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon" aria-hidden="true">🦴</div>
+        <h3>Back Pain Treatment</h3>
+        <p>Professional care for chronic back pain, lumbar issues, and spine-related conditions with personalized recovery plans.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon" aria-hidden="true">🚶</div>
+        <h3>Stroke & Paralysis Rehab</h3>
+        <p>Rehabilitation therapy for stroke recovery, mobility restoration, and muscle strengthening.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon" aria-hidden="true">💪</div>
+        <h3>Arthritis Management</h3>
+        <p>Pain management and mobility improvement for arthritis and joint-related conditions.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon" aria-hidden="true">⚡</div>
+        <h3>Sports Injuries</h3>
+        <p>Recovery and rehabilitation for sports-related injuries with performance optimization techniques.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon" aria-hidden="true">🧘</div>
+        <h3>Stress & Wellness</h3>
+        <p>Holistic approach to stress management, posture improvement, and overall wellness.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon" aria-hidden="true">🩺</div>
+        <h3>Acupuncture</h3>
+        <p>Traditional acupuncture therapy for pain relief and wellness enhancement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <h2>Why Choose Us</h2>
+    <div class="about-content">
+      <div class="about-text fade-in">
+        <h3>Expert Care, Proven Results</h3>
+        <p>At EKANDIWILL, we provide comprehensive physiotherapy and health care services tailored to your specific needs. Our team is committed to helping you achieve optimal health through evidence-based treatment methods.</p>
+        <ul class="about-list">
+          <li>Professional, certified therapists</li>
+          <li>Personalized treatment plans</li>
+          <li>Modern therapy techniques</li>
+          <li>Compassionate, patient-centered care</li>
+          <li>Flexible scheduling</li>
+          <li>Affordable treatment options</li>
+        </ul>
+      </div>
+      <div class="about-image fade-in">
+        <img src="https://images.unsplash.com/photo-1649751361457-01d3a696c7e6?auto=format&fit=crop&w=700&q=75" alt="Physiotherapist examining a patient's leg" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" style="background:var(--bg-light);">
+  <div class="container">
+    <h2>Our Care in Action</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1522898467493-49726bf28798?auto=format&fit=crop&w=600&q=75" alt="Wellness and stretch therapy session" loading="lazy">
+        <p>Wellness & Stretch Therapy</p>
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1545463913-5083aa7359a6?auto=format&fit=crop&w=600&q=75" alt="Foot and mobility treatment session" loading="lazy">
+        <p>Foot & Mobility Treatment</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sample testimonials below — replace with real client quotes (and get their consent) before launch -->
+<section id="testimonials">
+  <div class="container">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial fade-in">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p class="quote">"The physiotherapy treatment I received was excellent. The therapists are very professional and understanding. I noticed significant improvement in my back pain within weeks."</p>
+        <p class="testimonial-author">— Chisom O.</p>
+      </div>
+      <div class="testimonial fade-in">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p class="quote">"After my stroke, EKANDIWILL's rehabilitation program helped me regain mobility. The team is dedicated and supportive throughout the recovery journey."</p>
+        <p class="testimonial-author">— Emeka U.</p>
+      </div>
+      <div class="testimonial fade-in">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p class="quote">"I suffered from chronic arthritis pain. The personalized treatment plan worked wonders. Highly recommend their services to anyone seeking quality care."</p>
+        <p class="testimonial-author">— Blessing A.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2>Book Your Appointment</h2>
+    <div class="contact-wrapper">
+      <div class="contact-info fade-in">
+        <h3>Get in Touch</h3>
+        <div class="contact-item">
+          <div class="contact-icon" aria-hidden="true">📧</div>
+          <div>
+            <h4>Email</h4>
+            <p><a href="mailto:etteobong1970@gmail.com">etteobong1970@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon" aria-hidden="true">📱</div>
+          <div>
+            <h4>Phone</h4>
+            <p><a href="tel:+2348032379455">0803 237 9455</a></p>
+            <p><a href="tel:+2348102537878">0810 253 7878</a></p>
+            <p><a href="tel:+2348111364156">0811 136 4156</a></p>
+            <p><a href="tel:+2348020516991">0802 051 6991</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon" aria-hidden="true">💬</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p><a href="https://wa.me/2348032379455?text=Hello%20EKANDIWILL%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer">Chat with us instantly →</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon" aria-hidden="true">🕒</div>
+          <div>
+            <h4>Opening Hours</h4>
+            <!-- TODO: confirm real hours with client -->
+            <p>Mon–Sat: [add hours] · Sun: [add hours]</p>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="success-message" id="successMsg" role="status" aria-live="polite">
+          ✓ Appointment request sent! We'll contact you soon — or message us on WhatsApp for a faster reply.
+        </div>
+        <div class="error-message" id="errorMsg" role="alert">
+          Something went wrong sending your request. Please try again or reach us on WhatsApp.
+        </div>
+        <form id="appointmentForm" action="https://formsubmit.co/goldcode65@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New Appointment Request – EKANDIWILL">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+          <label for="name" class="sr-only">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+          <label for="email" class="sr-only">Your Email</label>
+          <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+          <label for="phone" class="sr-only">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+
+          <label for="service" class="sr-only">Select Service</label>
+          <select id="service" name="service" required>
+            <option value="">Select Service</option>
+            <option value="Back Pain">Back Pain Treatment</option>
+            <option value="Stroke Recovery">Stroke & Paralysis</option>
+            <option value="Arthritis">Arthritis Management</option>
+            <option value="Sports Injury">Sports Injuries</option>
+            <option value="Stress Wellness">Stress & Wellness</option>
+            <option value="Acupuncture">Acupuncture</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <div class="form-row">
+            <div>
+              <label for="date" class="sr-only">Preferred Date</label>
+              <input type="date" id="date" name="preferred_date">
+            </div>
+            <div>
+              <label for="time" class="sr-only">Preferred Time</label>
+              <select id="time" name="preferred_time">
+                <option value="">Preferred Time</option>
+                <option value="Morning (8am-12pm)">Morning (8am–12pm)</option>
+                <option value="Afternoon (12pm-4pm)">Afternoon (12pm–4pm)</option>
+                <option value="Evening (4pm-7pm)">Evening (4pm–7pm)</option>
+              </select>
+            </div>
+          </div>
+
+          <label for="message" class="sr-only">Tell us about your condition</label>
+          <textarea id="message" name="message" placeholder="Tell us about your condition..." rows="4"></textarea>
+
+          <button type="submit">Request Appointment</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a href="https://wa.me/2348032379455?text=Hello%20EKANDIWILL%2C%20I%27d%20like%20to%20book%20an%20appointment." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.04 2 11c0 2.42 1.13 4.62 2.96 6.27L4 22l4.93-1.31C9.92 20.88 10.94 21 12 21c5.52 0 10-4.04 10-9S17.52 2 12 2z"/></svg>
+</a>
+
+<footer>
+  <div class="container">
+    <p>&copy; <span id="year">2026</span> EKANDIWILL Physiotherapy & Health Care. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p style="margin-top:0.5rem;">RC: 1062669 · "In God We Trust"</p>
+    <p class="footer-credit">Website by <a href="#">FrankBuilds</a></p> 
+  </div>
+</footer>
+
+<script>
+(function () {
+  var header = document.querySelector('header');
+  var hamburger = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('primaryNav');
+
+  function setHeaderHeight() {
+    document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+  }
+  setHeaderHeight();
+  window.addEventListener('resize', setHeaderHeight);
+
+  window.addEventListener('scroll', function () {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+
+  function closeNav() {
+    mobileNav.classList.remove('open');
+    hamburger.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
+
+  hamburger.addEventListener('click', function () {
+    var isOpen = mobileNav.classList.toggle('open');
+    hamburger.classList.toggle('active', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  mobileNav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', closeNav);
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!mobileNav.contains(e.target) && !hamburger.contains(e.target)) closeNav();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeNav();
+  });
+
+  var revealItems = document.querySelectorAll('.fade-in');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealItems.forEach(function (el) { observer.observe(el); });
+  } else {
+    revealItems.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  var yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  var dateInput = document.getElementById('date');
+  if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
+
+  var form = document.getElementById('appointmentForm');
+  var successMsg = document.getElementById('successMsg');
+  var errorMsg = document.getElementById('errorMsg');
+  var FORM_EMAIL = 'etteobong1970@gmail.com';
+
+  if (form) {
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      successMsg.classList.remove('show');
+      errorMsg.classList.remove('show');
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      try {
+        var res = await fetch('https://formsubmit.co/ajax/' + FORM_EMAIL, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        if (!res.ok) throw new Error('Request failed');
+        successMsg.classList.add('show');
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        form.reset();
+      } catch (err) {
+        errorMsg.classList.add('show');
+        errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
