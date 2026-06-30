@@ -412,7 +412,6 @@ footer p { opacity:0.8; font-size:0.9rem; }
   </div>
 </section>
 
-<!-- Sample testimonials below — replace with real client quotes (and get their consent) before launch -->
 <section id="testimonials">
   <div class="container">
     <h2>What Our Clients Say</h2>
@@ -470,7 +469,6 @@ footer p { opacity:0.8; font-size:0.9rem; }
           <div class="contact-icon" aria-hidden="true">🕒</div>
           <div>
             <h4>Opening Hours</h4>
-            <!-- TODO: confirm real hours with client -->
             <p>Mon–Sat: [add hours] · Sun: [add hours]</p>
           </div>
         </div>
@@ -480,11 +478,14 @@ footer p { opacity:0.8; font-size:0.9rem; }
           ✓ Appointment request sent! We'll contact you soon — or message us on WhatsApp for a faster reply.
         </div>
         <div class="error-message" id="errorMsg" role="alert">
-          Something went wrong sending your request. Please try again or reach us on WhatsApp.
+          Something went wrong. Please try again or reach us on WhatsApp.
         </div>
+
+        <!-- FIX: action email, _captcha field restored, _honey field kept -->
         <form id="appointmentForm" action="https://formsubmit.co/goldcode65@gmail.com" method="POST">
           <input type="hidden" name="_subject" value="New Appointment Request – EKANDIWILL">
           <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
           <label for="name" class="sr-only">Your Name</label>
@@ -535,7 +536,7 @@ footer p { opacity:0.8; font-size:0.9rem; }
 </section>
 
 <a href="https://wa.me/2348032379455?text=Hello%20EKANDIWILL%2C%20I%27d%20like%20to%20book%20an%20appointment." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" title="Chat on WhatsApp">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.04 2 11c0 2.42 1.13 4.62 2.96 6.27L4 22l4.93-1.31C9.92 20.88 10.94 21 12 21c5.52 0 10-4.04 10-9S17.52 2 12 2z"/></svg>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.09-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.69 0-3.27-.51-4.58-1.38l-.33-.2-3.02.79.81-2.95-.21-.34A7.96 7.96 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
 </a>
 
 <footer>
@@ -548,7 +549,7 @@ footer p { opacity:0.8; font-size:0.9rem; }
       <a href="#contact">Contact</a>
     </div>
     <p style="margin-top:0.5rem;">RC: 1062669 · "In God We Trust"</p>
-    <p class="footer-credit">Website by <a href="#">FrankBuilds</a></p> 
+    <p class="footer-credit">Website by <a href="#">FrankBuilds</a></p>
   </div>
 </footer>
 
@@ -616,13 +617,16 @@ footer p { opacity:0.8; font-size:0.9rem; }
   var form = document.getElementById('appointmentForm');
   var successMsg = document.getElementById('successMsg');
   var errorMsg = document.getElementById('errorMsg');
-  var FORM_EMAIL = 'goldcode@gmail.com';
+
+  // FIX 1: email now matches the form action above
+  var FORM_EMAIL = 'goldcode65@gmail.com';
 
   if (form) {
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
       successMsg.classList.remove('show');
       errorMsg.classList.remove('show');
+
       var submitBtn = form.querySelector('button[type="submit"]');
       var originalText = submitBtn.textContent;
       submitBtn.disabled = true;
@@ -634,7 +638,13 @@ footer p { opacity:0.8; font-size:0.9rem; }
           headers: { 'Accept': 'application/json' },
           body: new FormData(form)
         });
-        if (!res.ok) throw new Error('Request failed');
+
+        // FIX 2: properly parse and check the response body, not just HTTP status
+        var data = await res.json();
+        if (!res.ok || data.success === 'false' || data.success === false) {
+          throw new Error('FormSubmit rejected');
+        }
+
         successMsg.classList.add('show');
         successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
         form.reset();
