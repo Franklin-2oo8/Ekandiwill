@@ -20,6 +20,7 @@
   --accent-dark:#3da89a;
   --whatsapp:#25d366;
   --whatsapp-dark:#1ebe57;
+  --caduceus:#22c55e;
   --text-dark:#2c3e50;
   --text-light:#7f8c8d;
   --bg-light:#f8f9fa;
@@ -31,7 +32,7 @@
 html { scroll-behavior:smooth; }
 
 body {
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;
+  font-family:-apple-system, BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;
   line-height:1.6;
   color:var(--text-dark);
   background:var(--white);
@@ -64,6 +65,7 @@ header.scrolled { box-shadow:0 4px 16px rgba(0,0,0,0.08); }
   font-size:1.4rem; font-weight:700; color:var(--primary);
   text-decoration:none; display:flex; align-items:center; gap:0.5rem;
 }
+.logo-svg { flex-shrink:0; }
 
 nav a {
   color:var(--text-dark); text-decoration:none;
@@ -85,7 +87,7 @@ nav a.nav-cta:hover { background:var(--accent-dark); color:var(--white); }
 .hamburger:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
 .hamburger span {
   display:block; height:3px; width:100%; background:var(--primary);
-  border-radius:2px; transition:transform 0.3s ease,opacity 0.3s ease;
+  border-radius:2px; transition:transform 0.3s ease, opacity 0.3s ease;
 }
 .hamburger.active span:nth-child(1) { transform:translateY(8px) rotate(45deg); }
 .hamburger.active span:nth-child(2) { opacity:0; }
@@ -97,11 +99,11 @@ nav a.nav-cta:hover { background:var(--accent-dark); color:var(--white); }
     position:fixed; top:var(--header-h); left:0; right:0;
     background:var(--white); box-shadow:0 16px 30px rgba(0,0,0,0.12);
     max-height:0; overflow:hidden; visibility:hidden;
-    transition:max-height 0.35s ease,visibility 0s linear 0.35s;
+    transition:max-height 0.35s ease, visibility 0s linear 0.35s;
   }
   nav.open {
     max-height:420px; visibility:visible;
-    transition:max-height 0.35s ease,visibility 0s linear 0s;
+    transition:max-height 0.35s ease, visibility 0s linear 0s;
   }
   nav a {
     display:block; margin:0; padding:1rem 1.5rem;
@@ -261,7 +263,8 @@ footer p { opacity:0.8; font-size:0.9rem; }
 <header>
   <div class="header-container">
     <a href="#" class="logo">
-      <svg width="26" height="32" viewBox="0 0 26 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Green caduceus SVG -->
+      <svg class="logo-svg" width="26" height="32" viewBox="0 0 26 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <line x1="13" y1="4" x2="13" y2="30" stroke="#22c55e" stroke-width="2.4" stroke-linecap="round"/>
         <path d="M13 7 C8 3.5 3 5.5 4.5 9 C6 12 10.5 11 13 11" fill="#22c55e"/>
         <path d="M13 7 C18 3.5 23 5.5 21.5 9 C20 12 15.5 11 13 11" fill="#22c55e"/>
@@ -372,6 +375,7 @@ footer p { opacity:0.8; font-size:0.9rem; }
   </div>
 </section>
 
+<!-- Replace with real consented client quotes before launch -->
 <section id="testimonials">
   <div class="container">
     <h2>What Our Clients Say</h2>
@@ -439,15 +443,15 @@ footer p { opacity:0.8; font-size:0.9rem; }
           ✓ Appointment request sent! We'll contact you soon — or message us on WhatsApp for a faster reply.
         </div>
         <div class="error-message" id="errorMsg" role="alert">
-          Something went wrong. Please try again or reach us directly on WhatsApp.
+          Something went wrong. Please try again or reach us on WhatsApp.
         </div>
 
-              <form id="appointmentForm">
-          <!-- Web3Forms config — no activation email needed -->
-          <input type="hidden" name="access_key" value="w3f_2fca71379856b377366d8cbde482fe8b18ebc8a642f81c6d">
-          <input type="hidden" name="subject" value="New Appointment Request – EKANDIWILL">
-          <input type="hidden" name="from_name" value="EKANDIWILL Website">
-          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" aria-hidden="true">
+        <form id="appointmentForm" action="https://formsubmit.co/frankdageek@yahoo.com" method="POST">
+          <input type="hidden" name="_subject" value="New Appointment Request – EKANDIWILL">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" id="nextUrl" value="">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
           <label for="fname" class="sr-only">Your Name</label>
           <input type="text" id="fname" name="name" placeholder="Your Name" required>
@@ -496,6 +500,7 @@ footer p { opacity:0.8; font-size:0.9rem; }
   </div>
 </section>
 
+<!-- WhatsApp floating button -->
 <a href="https://wa.me/2348032379455?text=Hello%20EKANDIWILL%2C%20I%27d%20like%20to%20book%20an%20appointment."
    class="whatsapp-float" target="_blank" rel="noopener noreferrer"
    aria-label="Chat with us on WhatsApp" title="Chat on WhatsApp">
@@ -522,16 +527,24 @@ footer p { opacity:0.8; font-size:0.9rem; }
 (function () {
   'use strict';
 
+  /* ── year ── */
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  /* ── _next: point fallback POST back to this page ── */
+  document.getElementById('nextUrl').value =
+    window.location.origin + window.location.pathname + '#contact';
+
+  /* ── date min ── */
   var dateInput = document.getElementById('fdate');
   if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
 
+  /* ── header shadow on scroll ── */
   var header = document.querySelector('header');
   window.addEventListener('scroll', function () {
     header.classList.toggle('scrolled', window.scrollY > 10);
   }, { passive: true });
 
+  /* ── header height CSS var (for sticky nav offset) ── */
   function setHeaderH() {
     document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
   }
@@ -573,11 +586,12 @@ footer p { opacity:0.8; font-size:0.9rem; }
     items.forEach(function (el) { el.classList.add('visible'); });
   }
 
-  /* ── Web3Forms submission ── */
-  var form       = document.getElementById('appointmentForm');
-  var submitBtn  = document.getElementById('submitBtn');
+  /* ── form submission ── */
+  var form      = document.getElementById('appointmentForm');
+  var submitBtn = document.getElementById('submitBtn');
   var successMsg = document.getElementById('successMsg');
   var errorMsg   = document.getElementById('errorMsg');
+  var FORM_EMAIL = 'frankdageek@yahoo.com';
 
   if (!form) return;
 
@@ -590,39 +604,35 @@ footer p { opacity:0.8; font-size:0.9rem; }
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
 
+    /* 12-second timeout — important on 3G */
     var controller = new AbortController();
     var timer = setTimeout(function () { controller.abort(); }, 12000);
 
-    var formData = new FormData(form);
-
-    fetch('https://api.web3forms.com/submit', {
+    fetch('https://formsubmit.co/ajax/' + FORM_EMAIL, {
       method: 'POST',
       headers: { 'Accept': 'application/json' },
-      body: formData,
+      body: new FormData(form),
       signal: controller.signal
     })
     .then(function (res) {
       clearTimeout(timer);
-      return res.json();
-    })
-    .then(function (data) {
-      if (data.success) {
+      return res.json().then(function (data) {
+        if (!res.ok || data.success === false || data.success === 'false') {
+          throw new Error('rejected');
+        }
+        /* ── SUCCESS ── */
         successMsg.classList.add('show');
         successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
         form.reset();
-      } else {
-        throw new Error(data.message || 'Submission failed');
-      }
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      });
     })
     .catch(function (err) {
       clearTimeout(timer);
-      console.error('Form error:', err);
-      errorMsg.classList.add('show');
-      errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    })
-    .finally(function () {
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
+      /* Network/timeout/rejection → fall back to native POST via _next redirect */
+      submitBtn.textContent = 'Submitting…';
+      form.submit(); /* FormSubmit will email and redirect to #contact via _next */
     });
   });
 
