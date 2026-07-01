@@ -20,7 +20,6 @@
   --accent-dark:#3da89a;
   --whatsapp:#25d366;
   --whatsapp-dark:#1ebe57;
-  --caduceus:#22c55e;
   --text-dark:#2c3e50;
   --text-light:#7f8c8d;
   --bg-light:#f8f9fa;
@@ -32,7 +31,7 @@
 html { scroll-behavior:smooth; }
 
 body {
-  font-family:-apple-system, BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;
   line-height:1.6;
   color:var(--text-dark);
   background:var(--white);
@@ -65,7 +64,6 @@ header.scrolled { box-shadow:0 4px 16px rgba(0,0,0,0.08); }
   font-size:1.4rem; font-weight:700; color:var(--primary);
   text-decoration:none; display:flex; align-items:center; gap:0.5rem;
 }
-.logo-svg { flex-shrink:0; }
 
 nav a {
   color:var(--text-dark); text-decoration:none;
@@ -87,7 +85,7 @@ nav a.nav-cta:hover { background:var(--accent-dark); color:var(--white); }
 .hamburger:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
 .hamburger span {
   display:block; height:3px; width:100%; background:var(--primary);
-  border-radius:2px; transition:transform 0.3s ease, opacity 0.3s ease;
+  border-radius:2px; transition:transform 0.3s ease,opacity 0.3s ease;
 }
 .hamburger.active span:nth-child(1) { transform:translateY(8px) rotate(45deg); }
 .hamburger.active span:nth-child(2) { opacity:0; }
@@ -99,11 +97,11 @@ nav a.nav-cta:hover { background:var(--accent-dark); color:var(--white); }
     position:fixed; top:var(--header-h); left:0; right:0;
     background:var(--white); box-shadow:0 16px 30px rgba(0,0,0,0.12);
     max-height:0; overflow:hidden; visibility:hidden;
-    transition:max-height 0.35s ease, visibility 0s linear 0.35s;
+    transition:max-height 0.35s ease,visibility 0s linear 0.35s;
   }
   nav.open {
     max-height:420px; visibility:visible;
-    transition:max-height 0.35s ease, visibility 0s linear 0s;
+    transition:max-height 0.35s ease,visibility 0s linear 0s;
   }
   nav a {
     display:block; margin:0; padding:1rem 1.5rem;
@@ -214,10 +212,17 @@ form button {
   border-radius:6px; font-size:1rem; font-weight:600; cursor:pointer; transition:all 0.3s;
 }
 form button:hover { background:var(--accent-dark); transform:translateY(-2px); }
-form button:disabled { opacity:0.7; cursor:not-allowed; transform:none; }
 
 @media (max-width:768px) { .contact-wrapper { grid-template-columns:1fr; } }
 @media (max-width:480px) { .form-row { grid-template-columns:1fr; } }
+
+/* ── Messages ── */
+.success-message, .error-message {
+  display:none; padding:1rem; border-radius:6px; margin-bottom:1rem; text-align:center;
+}
+.success-message { background:#28a745; color:white; }
+.error-message { background:#dc3545; color:white; }
+.success-message.show, .error-message.show { display:block; }
 
 /* ── Footer ── */
 footer { background:var(--text-dark); color:var(--white); text-align:center; padding:2.5rem 1.5rem; }
@@ -227,14 +232,6 @@ footer p { opacity:0.8; font-size:0.9rem; }
 .footer-links a:hover { opacity:1; }
 .footer-credit { margin-top:1rem; font-size:0.8rem; opacity:0.6; }
 .footer-credit a { color:var(--white); }
-
-/* ── Messages ── */
-.success-message, .error-message {
-  display:none; padding:1rem; border-radius:6px; margin-bottom:1rem; text-align:center;
-}
-.success-message { background:#28a745; color:white; }
-.error-message { background:#dc3545; color:white; }
-.success-message.show, .error-message.show { display:block; }
 
 /* ── WhatsApp float ── */
 .whatsapp-float {
@@ -263,8 +260,7 @@ footer p { opacity:0.8; font-size:0.9rem; }
 <header>
   <div class="header-container">
     <a href="#" class="logo">
-      <!-- Green caduceus SVG -->
-      <svg class="logo-svg" width="26" height="32" viewBox="0 0 26 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg width="26" height="32" viewBox="0 0 26 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <line x1="13" y1="4" x2="13" y2="30" stroke="#22c55e" stroke-width="2.4" stroke-linecap="round"/>
         <path d="M13 7 C8 3.5 3 5.5 4.5 9 C6 12 10.5 11 13 11" fill="#22c55e"/>
         <path d="M13 7 C18 3.5 23 5.5 21.5 9 C20 12 15.5 11 13 11" fill="#22c55e"/>
@@ -375,7 +371,6 @@ footer p { opacity:0.8; font-size:0.9rem; }
   </div>
 </section>
 
-<!-- Replace with real consented client quotes before launch -->
 <section id="testimonials">
   <div class="container">
     <h2>What Our Clients Say</h2>
@@ -440,36 +435,22 @@ footer p { opacity:0.8; font-size:0.9rem; }
 
       <div class="fade-in">
         <div class="success-message" id="successMsg" role="status" aria-live="polite">
-          ✓ Appointment request sent! We'll contact you soon — or message us on WhatsApp for a faster reply.
-        </div>
-        <div class="error-message" id="errorMsg" role="alert">
-          Something went wrong. Please try again or reach us on WhatsApp.
+          ✓ Your email app will open with everything filled in — just hit Send! Or message us on WhatsApp for an instant reply.
         </div>
 
-        <form id="appointmentForm" action="https://formsubmit.co/f8972461@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="New Appointment Request – EKANDIWILL">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" id="nextUrl" value="">
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-
+        <!-- mailto form — no internet needed, opens email app directly -->
+        <form id="appointmentForm">
           <label for="fname" class="sr-only">Your Name</label>
           <input type="text" id="fname" name="name" placeholder="Your Name" required>
-
-          <label for="femail" class="sr-only">Your Email</label>
-          <input type="email" id="femail" name="email" placeholder="Your Email" required>
-
-          <label for="fphone" class="sr-only">Phone Number</label>
-          <input type="tel" id="fphone" name="phone" placeholder="Phone Number" required>
 
           <label for="fservice" class="sr-only">Select Service</label>
           <select id="fservice" name="service" required>
             <option value="">Select Service</option>
-            <option value="Back Pain">Back Pain Treatment</option>
-            <option value="Stroke Recovery">Stroke & Paralysis</option>
-            <option value="Arthritis">Arthritis Management</option>
-            <option value="Sports Injury">Sports Injuries</option>
-            <option value="Stress Wellness">Stress & Wellness</option>
+            <option value="Back Pain Treatment">Back Pain Treatment</option>
+            <option value="Stroke & Paralysis">Stroke & Paralysis</option>
+            <option value="Arthritis Management">Arthritis Management</option>
+            <option value="Sports Injuries">Sports Injuries</option>
+            <option value="Stress & Wellness">Stress & Wellness</option>
             <option value="Acupuncture">Acupuncture</option>
             <option value="Other">Other</option>
           </select>
@@ -493,14 +474,13 @@ footer p { opacity:0.8; font-size:0.9rem; }
           <label for="fmessage" class="sr-only">Tell us about your condition</label>
           <textarea id="fmessage" name="message" placeholder="Tell us about your condition..." rows="4"></textarea>
 
-          <button type="submit" id="submitBtn">Request Appointment</button>
+          <button type="submit">Request Appointment</button>
         </form>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WhatsApp floating button -->
 <a href="https://wa.me/2348032379455?text=Hello%20EKANDIWILL%2C%20I%27d%20like%20to%20book%20an%20appointment."
    class="whatsapp-float" target="_blank" rel="noopener noreferrer"
    aria-label="Chat with us on WhatsApp" title="Chat on WhatsApp">
@@ -527,31 +507,23 @@ footer p { opacity:0.8; font-size:0.9rem; }
 (function () {
   'use strict';
 
-  /* ── year ── */
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* ── _next: point fallback POST back to this page ── */
-  document.getElementById('nextUrl').value =
-    window.location.origin + window.location.pathname + '#contact';
-
-  /* ── date min ── */
   var dateInput = document.getElementById('fdate');
   if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
 
-  /* ── header shadow on scroll ── */
   var header = document.querySelector('header');
   window.addEventListener('scroll', function () {
     header.classList.toggle('scrolled', window.scrollY > 10);
   }, { passive: true });
 
-  /* ── header height CSS var (for sticky nav offset) ── */
   function setHeaderH() {
     document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
   }
   setHeaderH();
   window.addEventListener('resize', setHeaderH);
 
-  /* ── hamburger ── */
+  /* ── Hamburger ── */
   var hamburger = document.getElementById('hamburger');
   var mobileNav = document.getElementById('primaryNav');
 
@@ -573,7 +545,7 @@ footer p { opacity:0.8; font-size:0.9rem; }
     if (e.key === 'Escape') closeNav();
   });
 
-  /* ── scroll reveal ── */
+  /* ── Scroll reveal ── */
   var items = document.querySelectorAll('.fade-in');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
@@ -586,54 +558,46 @@ footer p { opacity:0.8; font-size:0.9rem; }
     items.forEach(function (el) { el.classList.add('visible'); });
   }
 
-  /* ── form submission ── */
-  var form      = document.getElementById('appointmentForm');
-  var submitBtn = document.getElementById('submitBtn');
+  /* ── mailto form ── */
+  var form       = document.getElementById('appointmentForm');
   var successMsg = document.getElementById('successMsg');
-  var errorMsg   = document.getElementById('errorMsg');
-  var FORM_EMAIL = 'f8972461@gmail.com';
-
-  if (!form) return;
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    successMsg.classList.remove('show');
-    errorMsg.classList.remove('show');
 
-    var originalText = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
+    var name    = document.getElementById('fname').value.trim();
+    var email   = document.getElementById('femail').value.trim();
+    var phone   = document.getElementById('fphone').value.trim();
+    var service = document.getElementById('fservice').value;
+    var date    = document.getElementById('fdate').value;
+    var time    = document.getElementById('ftime').value;
+    var message = document.getElementById('fmessage').value.trim();
 
-    /* 12-second timeout — important on 3G */
-    var controller = new AbortController();
-    var timer = setTimeout(function () { controller.abort(); }, 12000);
+    var subject = 'New Appointment Request – EKANDIWILL';
 
-    fetch('https://formsubmit.co/ajax/' + FORM_EMAIL, {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: new FormData(form),
-      signal: controller.signal
-    })
-    .then(function (res) {
-      clearTimeout(timer);
-      return res.json().then(function (data) {
-        if (!res.ok || data.success === false || data.success === 'false') {
-          throw new Error('rejected');
-        }
-        /* ── SUCCESS ── */
-        successMsg.classList.add('show');
-        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        form.reset();
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-      });
-    })
-    .catch(function (err) {
-      clearTimeout(timer);
-      /* Network/timeout/rejection → fall back to native POST via _next redirect */
-      submitBtn.textContent = 'Submitting…';
-      form.submit(); /* FormSubmit will email and redirect to #contact via _next */
-    });
+    var body =
+      'APPOINTMENT REQUEST\n' +
+      '====================\n\n' +
+      'Name:           ' + name    + '\n' +
+      'Email:          ' + email   + '\n' +
+      'Phone:          ' + phone   + '\n' +
+      'Service:        ' + service + '\n' +
+      'Preferred Date: ' + (date || 'Not specified') + '\n' +
+      'Preferred Time: ' + (time || 'Not specified') + '\n\n' +
+      'Message:\n' + (message || 'No additional message.') + '\n\n' +
+      '--------------------\n' +
+      'Sent via EKANDIWILL website';
+
+    var mailto =
+      'mailto:etteobong1970@gmail.com' +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body='    + encodeURIComponent(body);
+
+    window.location.href = mailto;
+
+    successMsg.classList.add('show');
+    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    form.reset();
   });
 
 })();
