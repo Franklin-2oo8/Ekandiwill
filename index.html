@@ -4,345 +4,982 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EKANDIWILL - Physiotherapy & Health Care</title>
+
 <meta name="description" content="EKANDIWILL Physiotherapy & Health Care — registered (RC 1062669) physiotherapy, rehabilitation and acupuncture clinic. Book an appointment online or on WhatsApp.">
 <meta name="theme-color" content="#6b4c8a">
 <meta property="og:title" content="EKANDIWILL Physiotherapy & Health Care">
 <meta property="og:description" content="Professional physiotherapy, rehabilitation and acupuncture care. Book your appointment online or via WhatsApp.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://images.unsplash.com/photo-1706353399656-210cca727a33?auto=format&fit=crop&w=1200&q=75">
+
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 :root {
-  --primary:#6b4c8a;
-  --primary-light:#8b6ca8;
-  --accent:#4db8a8;
-  --accent-dark:#3da89a;
-  --whatsapp:#25d366;
-  --whatsapp-dark:#1ebe57;
-  --text-dark:#2c3e50;
-  --text-light:#7f8c8d;
-  --bg-light:#f8f9fa;
-  --white:#ffffff;
-  --border:#e1e8ed;
-  --header-h:72px;
+  --primary: #6b4c8a;
+  --primary-light: #8b6ca8;
+  --accent: #4db8a8;
+  --accent-dark: #3da89a;
+  --whatsapp: #25d366;
+  --whatsapp-dark: #1ebe57;
+  --text-dark: #2c3e50;
+  --text-light: #7f8c8d;
+  --bg-light: #f8f9fa;
+  --white: #ffffff;
+  --border: #e1e8ed;
+  --header-h: 72px;
 }
 
-html { scroll-behavior:smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;
-  line-height:1.6; color:var(--text-dark); background:var(--white); overflow-x:hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background: var(--white);
+  overflow-x: hidden;
 }
 
-section { scroll-margin-top:var(--header-h); }
+section {
+  scroll-margin-top: var(--header-h);
+  padding: 4rem 0;
+}
 
 .sr-only {
-  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
-  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-/* ── Header ── */
+/* HEADER */
+
 header {
-  background:var(--white); border-bottom:1px solid var(--border);
-  position:sticky; top:0; z-index:200; padding:1rem 1.5rem;
-  transition:box-shadow 0.3s ease;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  padding: 1rem 1.5rem;
+  transition: box-shadow 0.3s ease;
 }
-header.scrolled { box-shadow:0 4px 16px rgba(0,0,0,0.08); }
+
+header.scrolled {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
 
 .header-container {
-  max-width:1200px; margin:0 auto;
-  display:flex; justify-content:space-between; align-items:center;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-  font-size:1.4rem; font-weight:700; color:var(--primary);
-  text-decoration:none; display:flex; align-items:center; gap:0.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 nav a {
-  color:var(--text-dark); text-decoration:none;
-  font-size:0.95rem; margin:0 1rem; transition:color 0.3s;
+  color: var(--text-dark);
+  text-decoration: none;
+  font-size: 0.95rem;
+  margin: 0 0.65rem;
+  transition: color 0.3s;
 }
-nav a:hover, nav a:focus-visible { color:var(--accent); }
+
+nav a:hover,
+nav a:focus-visible {
+  color: var(--accent);
+}
+
 nav a.nav-cta {
-  margin-left:0.5rem; background:var(--accent); color:var(--white);
-  padding:0.55rem 1.25rem; border-radius:6px; font-weight:600;
+  margin-left: 0.5rem;
+  background: var(--accent);
+  color: var(--white);
+  padding: 0.55rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
 }
-nav a.nav-cta:hover { background:var(--accent-dark); color:var(--white); }
 
-/* ── Hamburger ── */
+nav a.nav-cta:hover {
+  background: var(--accent-dark);
+  color: var(--white);
+}
+
+/* MOBILE NAVIGATION */
+
 .hamburger {
-  display:none; flex-direction:column; justify-content:space-between;
-  width:26px; height:19px; background:transparent; border:none; cursor:pointer; padding:0;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 19px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
-.hamburger:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+
+.hamburger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 .hamburger span {
-  display:block; height:3px; width:100%; background:var(--primary);
-  border-radius:2px; transition:transform 0.3s ease,opacity 0.3s ease;
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
-.hamburger.active span:nth-child(1) { transform:translateY(8px) rotate(45deg); }
-.hamburger.active span:nth-child(2) { opacity:0; }
-.hamburger.active span:nth-child(3) { transform:translateY(-8px) rotate(-45deg); }
 
-@media (max-width:768px) {
-  .hamburger { display:flex; }
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
   nav {
-    position:fixed; top:var(--header-h); left:0; right:0;
-    background:var(--white); box-shadow:0 16px 30px rgba(0,0,0,0.12);
-    max-height:0; overflow:hidden; visibility:hidden;
-    transition:max-height 0.35s ease,visibility 0s linear 0.35s;
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    background: var(--white);
+    box-shadow: 0 16px 30px rgba(0,0,0,0.12);
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: max-height 0.35s ease, visibility 0s linear 0.35s;
   }
+
   nav.open {
-    max-height:500px; visibility:visible;
-    transition:max-height 0.35s ease,visibility 0s linear 0s;
+    max-height: 500px;
+    visibility: visible;
+    transition: max-height 0.35s ease, visibility 0s linear 0s;
   }
+
   nav a {
-    display:block; margin:0; padding:1rem 1.5rem;
-    border-bottom:1px solid var(--border); text-align:center;
+    display: block;
+    margin: 0;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    text-align: center;
   }
-  nav a:last-child { border-bottom:none; }
-  nav a.nav-cta { margin:0.75rem 1.5rem; border-radius:6px; }
+
+  nav a:last-child {
+    border-bottom: none;
+  }
+
+  nav a.nav-cta {
+    margin: 0.75rem 1.5rem;
+    border-radius: 6px;
+  }
 }
 
-/* ── Hero ── */
+/* HERO */
+
 .hero {
-  background:linear-gradient(135deg,rgba(107,76,138,0.93) 0%,rgba(139,108,168,0.88) 100%),
+  background:
+    linear-gradient(135deg, rgba(107,76,138,0.93), rgba(139,108,168,0.88)),
     url('https://images.unsplash.com/photo-1706353399656-210cca727a33?auto=format&fit=crop&w=1600&q=75') center/cover no-repeat;
-  color:var(--white); padding:5rem 1.5rem; text-align:center;
+  color: var(--white);
+  padding: 5rem 1.5rem;
+  text-align: center;
 }
-.hero-content { max-width:700px; margin:0 auto; }
+
+.hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 .trust-badge {
-  display:inline-block; background:rgba(255,255,255,0.15);
-  border:1px solid rgba(255,255,255,0.35); padding:0.4rem 1rem;
-  border-radius:50px; font-size:0.85rem; margin-bottom:1.25rem;
-  backdrop-filter:blur(4px);
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.35);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+  backdrop-filter: blur(4px);
 }
-.hero h1 { font-size:clamp(1.8rem,4.5vw,2.6rem); margin-bottom:1rem; font-weight:700; }
-.hero p { font-size:clamp(1rem,2vw,1.15rem); margin-bottom:2rem; opacity:0.95; }
-.hero-actions { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+
+.hero h1 {
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
 .cta-btn {
-  background:var(--accent); color:var(--white); padding:0.85rem 2rem;
-  border:none; border-radius:6px; font-size:1rem; font-weight:600;
-  cursor:pointer; transition:all 0.3s; text-decoration:none; display:inline-block;
-}
-.cta-btn:hover { background:var(--accent-dark); transform:translateY(-2px); box-shadow:0 8px 16px rgba(0,0,0,0.15); }
-.cta-btn.cta-whatsapp { background:var(--whatsapp); }
-.cta-btn.cta-whatsapp:hover { background:var(--whatsapp-dark); }
-
-/* ── Container / Sections ── */
-.container { max-width:1200px; margin:0 auto; padding:0 1.5rem; }
-section { padding:4rem 0; }
-section h2 { font-size:clamp(1.6rem,3.5vw,2rem); margin-bottom:3rem; text-align:center; color:var(--primary); }
-
-/* ── Fade in ── */
-.fade-in { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease,transform 0.6s ease; }
-.fade-in.visible { opacity:1; transform:translateY(0); }
-@media (prefers-reduced-motion:reduce) {
-  html { scroll-behavior:auto; }
-  .fade-in { opacity:1; transform:none; transition:none; }
-  .whatsapp-float { animation:none; }
+  background: var(--accent);
+  color: var(--white);
+  padding: 0.85rem 2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
 }
 
-/* ── Services ── */
-.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem; }
+.cta-btn:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.cta-btn.cta-whatsapp {
+  background: var(--whatsapp);
+}
+
+.cta-btn.cta-whatsapp:hover {
+  background: var(--whatsapp-dark);
+}
+
+/* CONTAINERS */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2rem);
+  margin-bottom: 3rem;
+  text-align: center;
+  color: var(--primary);
+}
+
+/* ANIMATIONS */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .whatsapp-float {
+    animation: none;
+  }
+}
+
+/* SERVICES */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
 .service-card {
-  background:var(--bg-light); padding:2rem; border-radius:8px;
-  border-left:4px solid var(--accent); transition:all 0.3s; text-align:center;
+  background: var(--bg-light);
+  padding: 2rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+  transition: all 0.3s;
+  text-align: center;
 }
-.service-card:hover { transform:translateY(-4px); box-shadow:0 12px 24px rgba(0,0,0,0.08); }
-.service-icon { font-size:2.5rem; margin-bottom:1rem; }
-.service-card h3 { color:var(--primary); margin-bottom:0.5rem; font-size:1.2rem; }
-.service-card p { color:var(--text-light); font-size:0.95rem; }
 
-/* ── About ── */
-#about { background:var(--bg-light); }
-.about-content { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
-.about-text h3 { color:var(--primary); font-size:1.5rem; margin-bottom:1rem; }
-.about-text p { color:var(--text-light); margin-bottom:1rem; line-height:1.8; }
-.about-list { list-style:none; margin-top:1.5rem; }
-.about-list li { padding:0.5rem 0; color:var(--text-dark); padding-left:1.5rem; position:relative; }
-.about-list li:before { content:"✓"; position:absolute; left:0; color:var(--accent); font-weight:bold; }
-.about-image { border-radius:8px; overflow:hidden; box-shadow:0 12px 30px rgba(0,0,0,0.12); }
-.about-image img { width:100%; height:100%; object-fit:cover; display:block; }
-@media (max-width:768px) { .about-content { grid-template-columns:1fr; } }
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+}
 
-/* ── Gallery ── */
-.gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; }
-.gallery-item { border-radius:8px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,0.08); background:var(--white); }
-.gallery-item img { width:100%; height:240px; object-fit:cover; display:block; }
-.gallery-item p { padding:1rem; text-align:center; font-weight:600; color:var(--primary); }
+.service-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
 
-/* ── FAQ ── */
-#faq { background:var(--bg-light); }
-.faq-list { max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:0.75rem; }
-.faq-item { background:var(--white); border-radius:8px; border:1px solid var(--border); overflow:hidden; }
+.service-card h3 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.service-card p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+/* ABOUT */
+
+#about {
+  background: var(--bg-light);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-text h3 {
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.about-list {
+  list-style: none;
+  margin-top: 1.5rem;
+}
+
+.about-list li {
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  color: var(--text-dark);
+  position: relative;
+}
+
+.about-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.about-image {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* GALLERY */
+
+#gallery {
+  background: var(--bg-light);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery-item {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  background: var(--white);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-item p {
+  padding: 1rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* PATIENT TESTIMONIAL VIDEO */
+
+#testimonial {
+  background: var(--white);
+}
+
+.testimonial-intro {
+  max-width: 700px;
+  margin: -1.5rem auto 2rem;
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.testimonial-card {
+  max-width: 850px;
+  margin: 0 auto;
+  background: var(--bg-light);
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.testimonial-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #171717;
+  border-radius: 8px;
+}
+
+.testimonial-caption {
+  text-align: center;
+  padding: 1.5rem 1rem 0.5rem;
+}
+
+.testimonial-caption h3 {
+  color: var(--primary);
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-caption p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.testimonial-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .testimonial-card {
+    padding: 0.65rem;
+    border-radius: 8px;
+  }
+
+  .testimonial-caption {
+    padding: 1rem 0.5rem 0.4rem;
+  }
+
+  .testimonial-caption h3 {
+    font-size: 1.15rem;
+  }
+}
+
+/* FAQ */
+
+#faq {
+  background: var(--bg-light);
+}
+
+.faq-list {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.faq-item {
+  background: var(--white);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
 .faq-question {
-  width:100%; background:none; border:none; padding:1.25rem 1.5rem;
-  display:flex; justify-content:space-between; align-items:center;
-  font-size:1rem; font-weight:600; color:var(--text-dark);
-  cursor:pointer; text-align:left; transition:color 0.3s; font-family:inherit;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.3s;
+  font-family: inherit;
 }
-.faq-question:hover, .faq-question[aria-expanded="true"] { color:var(--primary); }
+
+.faq-question:hover,
+.faq-question[aria-expanded="true"] {
+  color: var(--primary);
+}
+
 .faq-icon {
-  font-size:1.5rem; color:var(--accent); flex-shrink:0;
-  margin-left:1rem; transition:transform 0.3s; line-height:1;
-  font-style:normal; font-weight:300;
+  font-size: 1.5rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-left: 1rem;
+  transition: transform 0.3s;
+  line-height: 1;
+  font-style: normal;
+  font-weight: 300;
 }
-.faq-question[aria-expanded="true"] .faq-icon { transform:rotate(45deg); }
-.faq-answer { max-height:0; overflow:hidden; transition:max-height 0.35s ease; }
-.faq-answer p { padding:0 1.5rem 1.25rem; color:var(--text-light); line-height:1.8; }
-.faq-item.open .faq-answer { max-height:300px; }
 
-/* ── Contact ── */
-#contact { background:linear-gradient(135deg,var(--primary) 0%,var(--primary-light) 100%); color:var(--white); }
-#contact h2 { color:var(--white); }
-.contact-wrapper { display:grid; grid-template-columns:1fr 1fr; gap:3rem; max-width:1000px; margin:0 auto; }
-.contact-info { display:flex; flex-direction:column; gap:1.75rem; }
-.contact-item { display:flex; gap:1rem; }
-.contact-item h4 { font-size:1.1rem; margin-bottom:0.3rem; }
-.contact-item p, .contact-item a { opacity:0.9; font-size:0.95rem; color:var(--white); text-decoration:none; }
-.contact-item a:hover { text-decoration:underline; opacity:1; }
-.contact-icon { font-size:1.8rem; flex-shrink:0; }
-
-form { display:flex; flex-direction:column; gap:1.2rem; }
-.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
-form input, form textarea, form select {
-  padding:0.85rem; border:1px solid rgba(255,255,255,0.3); border-radius:6px;
-  font-size:1rem; background:rgba(255,255,255,0.95); color:var(--text-dark); font-family:inherit;
+.faq-question[aria-expanded="true"] .faq-icon {
+  transform: rotate(45deg);
 }
-form input::placeholder, form textarea::placeholder { color:var(--text-light); }
-form input:focus-visible, form select:focus-visible, form textarea:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.faq-answer p {
+  padding: 0 1.5rem 1.25rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 500px;
+}
+
+/* CONTACT */
+
+#contact {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--white);
+}
+
+#contact h2 {
+  color: var(--white);
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.contact-item {
+  display: flex;
+  gap: 1rem;
+}
+
+.contact-item h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.contact-item p,
+.contact-item a {
+  opacity: 0.9;
+  font-size: 0.95rem;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+.contact-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 0.85rem;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 6px;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.95);
+  color: var(--text-dark);
+  font-family: inherit;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: var(--text-light);
+}
+
+form input:focus-visible,
+form select:focus-visible,
+form textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 form button {
-  background:var(--accent); color:var(--white); padding:1rem; border:none;
-  border-radius:6px; font-size:1rem; font-weight:600; cursor:pointer; transition:all 0.3s;
+  background: var(--accent);
+  color: var(--white);
+  padding: 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
 }
-form button:hover { background:var(--accent-dark); transform:translateY(-2px); }
-@media (max-width:768px) { .contact-wrapper { grid-template-columns:1fr; } }
-@media (max-width:480px) { .form-row { grid-template-columns:1fr; } }
+
+form button:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
 
 .success-message {
-  display:none; padding:1rem; border-radius:6px;
-  margin-bottom:1rem; text-align:center; background:#28a745; color:white;
+  display: none;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  text-align: center;
+  background: #28a745;
+  color: white;
 }
-.success-message.show { display:block; }
 
-/* ── Footer ── */
-footer { background:var(--text-dark); color:var(--white); text-align:center; padding:2.5rem 1.5rem; }
-footer p { opacity:0.8; font-size:0.9rem; }
-.footer-links { margin:1rem 0; display:flex; justify-content:center; gap:1.25rem; flex-wrap:wrap; }
-.footer-links a { color:var(--white); text-decoration:none; opacity:0.8; transition:opacity 0.3s; }
-.footer-links a:hover { opacity:1; }
-.footer-credit { margin-top:1rem; font-size:0.8rem; opacity:0.6; }
-.footer-credit a { color:var(--white); }
+.success-message.show {
+  display: block;
+}
 
-/* ── WhatsApp float ── */
+/* FOOTER */
+
+footer {
+  background: var(--text-dark);
+  color: var(--white);
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+}
+
+footer p {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--white);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+.footer-credit {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.footer-credit a {
+  color: var(--white);
+}
+
+/* FLOATING WHATSAPP */
+
 .whatsapp-float {
-  position:fixed; bottom:22px; right:22px; width:58px; height:58px;
-  background:var(--whatsapp); border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  box-shadow:0 8px 20px rgba(37,211,102,0.45); z-index:150;
-  text-decoration:none; transition:transform 0.25s ease,background 0.25s ease;
-  animation:pulse-wa 2.5s infinite;
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 58px;
+  height: 58px;
+  background: var(--whatsapp);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(37,211,102,0.45);
+  z-index: 150;
+  text-decoration: none;
+  transition: transform 0.25s ease, background 0.25s ease;
+  animation: pulse-wa 2.5s infinite;
 }
-.whatsapp-float:hover { transform:scale(1.08); background:var(--whatsapp-dark); }
-.whatsapp-float svg { width:30px; height:30px; fill:white; }
+
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  background: var(--whatsapp-dark);
+}
+
+.whatsapp-float svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
+}
+
 @keyframes pulse-wa {
-  0%   { box-shadow:0 0 0 0 rgba(37,211,102,0.55); }
-  70%  { box-shadow:0 0 0 14px rgba(37,211,102,0); }
-  100% { box-shadow:0 0 0 0 rgba(37,211,102,0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(37,211,102,0.55);
+  }
+
+  70% {
+    box-shadow: 0 0 0 14px rgba(37,211,102,0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(37,211,102,0);
+  }
 }
-@media (max-width:480px) {
-  .whatsapp-float { width:50px; height:50px; bottom:16px; right:16px; }
-  .whatsapp-float svg { width:26px; height:26px; }
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .whatsapp-float svg {
+    width: 26px;
+    height: 26px;
+  }
 }
 </style>
 </head>
+
 <body>
+
+<!-- HEADER -->
 
 <header>
   <div class="header-container">
+
     <a href="#" class="logo">
-      <svg width="26" height="32" viewBox="0 0 26 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <line x1="13" y1="4" x2="13" y2="30" stroke="#22c55e" stroke-width="2.4" stroke-linecap="round"/>
-        <path d="M13 7 C8 3.5 3 5.5 4.5 9 C6 12 10.5 11 13 11" fill="#22c55e"/>
-        <path d="M13 7 C18 3.5 23 5.5 21.5 9 C20 12 15.5 11 13 11" fill="#22c55e"/>
-        <path d="M13 11 C7 14 7 18.5 13 20 C19 21.5 19 26 13 29" stroke="#22c55e" stroke-width="1.9" fill="none" stroke-linecap="round"/>
-        <path d="M13 11 C19 14 19 18.5 13 20 C7 21.5 7 26 13 29" stroke="#22c55e" stroke-width="1.9" fill="none" stroke-linecap="round"/>
+      <svg width="26" height="32" viewBox="0 0 26 32" fill="none"
+           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="13" y1="4" x2="13" y2="30"
+              stroke="#22c55e" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M13 7 C8 3.5 3 5.5 4.5 9 C6 12 10.5 11 13 11"
+              fill="#22c55e"/>
+        <path d="M13 7 C18 3.5 23 5.5 21.5 9 C20 12 15.5 11 13 11"
+              fill="#22c55e"/>
+        <path d="M13 11 C7 14 7 18.5 13 20 C19 21.5 19 26 13 29"
+              stroke="#22c55e" stroke-width="1.9" fill="none" stroke-linecap="round"/>
+        <path d="M13 11 C19 14 19 18.5 13 20 C7 21.5 7 26 13 29"
+              stroke="#22c55e" stroke-width="1.9" fill="none" stroke-linecap="round"/>
       </svg>
       <span>EKANDIWILL</span>
     </a>
-    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primaryNav">
-      <span></span><span></span><span></span>
+
+    <button class="hamburger" id="hamburger"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false" aria-controls="primaryNav">
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
+
     <nav id="primaryNav">
       <a href="#services">Services</a>
       <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#testimonial">Testimonials</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
       <a href="#contact" class="nav-cta">Book Now</a>
     </nav>
+
   </div>
 </header>
 
+<!-- HERO -->
+
 <section class="hero">
   <div class="hero-content fade-in">
+
     <span class="trust-badge">✅ Registered Provider · RC 1062669</span>
+
     <h1>Professional Physiotherapy Care</h1>
-    <p>Expert treatment for pain relief, injury recovery, and enhanced mobility. Personalized care for your health.</p>
+
+    <p>
+      Expert treatment for pain relief, injury recovery, and enhanced mobility.
+      Personalized care for your health.
+    </p>
+
     <div class="hero-actions">
       <a href="#contact" class="cta-btn">Book Appointment</a>
-      <a href="https://wa.me/2348032379455?text=Hello%20EKANDIWILL%2C%20I%27d%20like%20to%20book%20an%20appointment." class="cta-btn cta-whatsapp" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+
+      <a href="https://wa.me/2348032379455?text=Hello%20EKANDIWILL%2C%20I%27d%20like%20to%20book%20an%20appointment."
+         class="cta-btn cta-whatsapp"
+         target="_blank" rel="noopener noreferrer">
+        Chat on WhatsApp
+      </a>
     </div>
+
   </div>
 </section>
 
+<!-- SERVICES -->
+
 <section id="services">
   <div class="container">
+
     <h2>Our Services</h2>
+
     <div class="services-grid">
+
       <div class="service-card fade-in">
         <div class="service-icon" aria-hidden="true">🦴</div>
         <h3>Back Pain Treatment</h3>
         <p>Professional care for chronic back pain, lumbar issues, and spine-related conditions with personalized recovery plans.</p>
       </div>
+
       <div class="service-card fade-in">
         <div class="service-icon" aria-hidden="true">🚶</div>
-        <h3>Stroke & Paralysis Rehab</h3>
+        <h3>Stroke &amp; Paralysis Rehab</h3>
         <p>Rehabilitation therapy for stroke recovery, mobility restoration, and muscle strengthening.</p>
       </div>
+
       <div class="service-card fade-in">
         <div class="service-icon" aria-hidden="true">💪</div>
         <h3>Arthritis Management</h3>
         <p>Pain management and mobility improvement for arthritis and joint-related conditions.</p>
       </div>
+
       <div class="service-card fade-in">
         <div class="service-icon" aria-hidden="true">⚡</div>
         <h3>Sports Injuries</h3>
         <p>Recovery and rehabilitation for sports-related injuries with performance optimization techniques.</p>
       </div>
+
       <div class="service-card fade-in">
         <div class="service-icon" aria-hidden="true">🧘</div>
-        <h3>Stress & Wellness</h3>
+        <h3>Stress &amp; Wellness</h3>
         <p>Holistic approach to stress management, posture improvement, and overall wellness.</p>
       </div>
+
       <div class="service-card fade-in">
         <div class="service-icon" aria-hidden="true">🩺</div>
         <h3>Acupuncture</h3>
         <p>Traditional acupuncture therapy for pain relief and wellness enhancement.</p>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- ABOUT -->
+
 <section id="about">
   <div class="container">
+
     <h2>Why Choose Us</h2>
+
     <div class="about-content">
+
       <div class="about-text fade-in">
         <h3>Expert Care, Proven Results</h3>
-        <p>At EKANDIWILL, we provide comprehensive physiotherapy and health care services tailored to your specific needs. Our team is committed to helping you achieve optimal health through evidence-based treatment methods.</p>
+
+        <p>
+          At EKANDIWILL, we provide comprehensive physiotherapy and health care
+          services tailored to your specific needs. Our team is committed to
+          helping you achieve optimal health through evidence-based treatment methods.
+        </p>
+
         <ul class="about-list">
           <li>Professional, certified therapists</li>
           <li>Personalized treatment plans</li>
@@ -352,32 +989,108 @@ footer p { opacity:0.8; font-size:0.9rem; }
           <li>Affordable treatment options</li>
         </ul>
       </div>
+
       <div class="about-image fade-in">
-        <img src="https://images.unsplash.com/photo-1649751361457-01d3a696c7e6?auto=format&fit=crop&w=700&q=75" alt="Physiotherapist examining a patient's leg" loading="lazy">
+        <img
+          src="https://images.unsplash.com/photo-1649751361457-01d3a696c7e6?auto=format&fit=crop&w=700&q=75"
+          alt="Physiotherapist examining a patient's leg"
+          loading="lazy">
       </div>
+
     </div>
   </div>
 </section>
 
-<section id="gallery" style="background:var(--bg-light);">
+<!-- GALLERY -->
+
+<section id="gallery">
   <div class="container">
+
     <h2>Our Care in Action</h2>
+
     <div class="gallery-grid">
+
       <div class="gallery-item fade-in">
-        <img src="https://images.unsplash.com/photo-1522898467493-49726bf28798?auto=format&fit=crop&w=600&q=75" alt="Wellness and stretch therapy session" loading="lazy">
-        <p>Wellness & Stretch Therapy</p>
+        <img
+          src="https://images.unsplash.com/photo-1522898467493-49726bf28798?auto=format&fit=crop&w=600&q=75"
+          alt="Wellness and stretch therapy session"
+          loading="lazy">
+        <p>Wellness &amp; Stretch Therapy</p>
       </div>
+
       <div class="gallery-item fade-in">
-        <img src="https://images.unsplash.com/photo-1545463913-5083aa7359a6?auto=format&fit=crop&w=600&q=75" alt="Foot and mobility treatment session" loading="lazy">
-        <p>Foot & Mobility Treatment</p>
+        <img
+          src="https://images.unsplash.com/photo-1545463913-5083aa7359a6?auto=format&fit=crop&w=600&q=75"
+          alt="Foot and mobility treatment session"
+          loading="lazy">
+        <p>Foot &amp; Mobility Treatment</p>
       </div>
+
     </div>
   </div>
 </section>
+
+<!-- PATIENT TESTIMONIAL VIDEO -->
+
+<section id="testimonial">
+  <div class="container">
+
+    <h2>Real Stories, Real Recovery</h2>
+
+    <p class="testimonial-intro">
+      Every recovery journey is personal.
+      Hear directly from a client about their experience with
+      EKANDIWILL Physiotherapy &amp; Health Care.
+    </p>
+
+    <div class="testimonial-card fade-in">
+
+      <video
+        class="testimonial-video"
+        controls
+        playsinline
+        preload="metadata"
+        aria-label="Client testimonial about EKANDIWILL Physiotherapy and Health Care">
+
+        <!-- REPLACE THE SOURCE BELOW WITH YOUR VIDEO PATH -->
+        <source src="testivid.mp4" type="video/mp4">
+
+        Your browser does not support HTML video.
+        Please try using an updated browser.
+      </video>
+
+      <div class="testimonial-caption">
+        <h3>A Client's Experience</h3>
+
+        <p>
+          Listen to our client's experience and learn more about the care
+          we provide. Every patient's journey is unique, and we are committed
+          to providing personalized care and support.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="testimonial-cta">
+      <a
+        href="https://wa.me/2348032379455?text=Hello%20EKANDIWILL%2C%20I%27d%20like%20to%20book%20an%20appointment."
+        class="cta-btn cta-whatsapp"
+        target="_blank"
+        rel="noopener noreferrer">
+        Book Your Appointment
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
 
 <section id="faq">
   <div class="container">
+
     <h2>Common Questions</h2>
+
     <div class="faq-list">
 
       <div class="faq-item fade-in">
@@ -385,8 +1098,16 @@ footer p { opacity:0.8; font-size:0.9rem; }
           What happens when I come for my first session?
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
+
         <div class="faq-answer" role="region">
-          <p>We'll sit down and talk first — what's been happening, how long it's been going on, any treatments you've tried before. Then the therapist does a physical assessment to understand exactly what's going on. After that we'll explain what we found and what treatment will look like. First sessions usually run about 45 to 60 minutes. Just come in something loose and comfortable.</p>
+          <p>
+            We'll sit down and talk first — what's been happening, how long
+            it's been going on, and any treatments you've tried before.
+            Then the therapist does a physical assessment to understand
+            exactly what's going on. After that we'll explain what we found
+            and what treatment will look like. First sessions usually run
+            about 45 to 60 minutes. Just come in something loose and comfortable.
+          </p>
         </div>
       </div>
 
@@ -395,8 +1116,14 @@ footer p { opacity:0.8; font-size:0.9rem; }
           Do I need a doctor's referral before I can come?
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
+
         <div class="faq-answer" role="region">
-          <p>No, you don't need one. Just book directly — through this page, by phone, or on WhatsApp. If you already have test results, scans, or a doctor's report, bring them along. They help us understand your case faster, but they're not required to get started.</p>
+          <p>
+            No, you don't need one. Just book directly — through this page,
+            by phone, or on WhatsApp. If you already have test results,
+            scans, or a doctor's report, bring them along. They help us
+            understand your case faster, but they're not required to get started.
+          </p>
         </div>
       </div>
 
@@ -405,8 +1132,14 @@ footer p { opacity:0.8; font-size:0.9rem; }
           How many times will I need to come?
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
+
         <div class="faq-answer" role="region">
-          <p>Honestly, it depends on what you're dealing with. Some people come in three or four times and they're sorted. Others with long-standing conditions need more time. We'll give you a straight answer after your first assessment — no vague promises, just a realistic plan based on your actual situation.</p>
+          <p>
+            Honestly, it depends on what you're dealing with. Some people
+            come in three or four times and they're sorted. Others with
+            long-standing conditions need more time. We'll give you a
+            realistic plan based on your actual situation after your first assessment.
+          </p>
         </div>
       </div>
 
@@ -415,8 +1148,15 @@ footer p { opacity:0.8; font-size:0.9rem; }
           Will the treatment hurt?
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
+
         <div class="faq-answer" role="region">
-          <p>Some techniques can feel uncomfortable, especially if the area is inflamed or hasn't been treated before. But it should never be the kind of pain that makes you want to stop. We always work at a pace that's right for you — just say something if anything feels off and we'll adjust immediately.</p>
+          <p>
+            Some techniques can feel uncomfortable, especially if the area
+            is inflamed or hasn't been treated before. But it should never
+            be the kind of pain that makes you want to stop. We always work
+            at a pace that's right for you. Tell us if anything feels wrong
+            and we'll adjust immediately.
+          </p>
         </div>
       </div>
 
@@ -425,8 +1165,15 @@ footer p { opacity:0.8; font-size:0.9rem; }
           I'm not sure if my condition is something you treat — how do I know?
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
+
         <div class="faq-answer" role="region">
-          <p>Just send us a message on WhatsApp or call us and describe what's going on. We'll tell you honestly whether we can help or point you in the right direction. We handle a wide range of conditions — back and waist pain, arthritis, stroke rehab, sports injuries, stress management, foot treatment, acupuncture, and more — but we'd rather you ask than guess.</p>
+          <p>
+            Just send us a message on WhatsApp or call us and describe
+            what's going on. We'll tell you whether we can help or point
+            you in the right direction. We handle back and waist pain,
+            arthritis, stroke rehabilitation, sports injuries, stress
+            management, foot treatment, acupuncture, and more.
+          </p>
         </div>
       </div>
 
@@ -435,8 +1182,13 @@ footer p { opacity:0.8; font-size:0.9rem; }
           How do I book?
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
+
         <div class="faq-answer" role="region">
-          <p>Three ways: fill out the form on this page and we'll reach out to confirm, call any of our numbers directly, or message us on WhatsApp — that's usually the fastest. We'll sort out a time that works for you.</p>
+          <p>
+            Three ways: fill out the form on this page and we'll reach out
+            to confirm, call any of our numbers directly, or message us on
+            WhatsApp — that's usually the fastest. We'll arrange a suitable time.
+          </p>
         </div>
       </div>
 
@@ -444,19 +1196,31 @@ footer p { opacity:0.8; font-size:0.9rem; }
   </div>
 </section>
 
+<!-- CONTACT AND APPOINTMENT FORM -->
+
 <section id="contact">
   <div class="container">
+
     <h2>Book Your Appointment</h2>
+
     <div class="contact-wrapper">
+
       <div class="contact-info fade-in">
+
         <h3>Get in Touch</h3>
+
         <div class="contact-item">
           <div class="contact-icon" aria-hidden="true">📧</div>
           <div>
             <h4>Email</h4>
-            <p><a href="mailto:etteobong1970@gmail.com">etteobong1970@gmail.com</a></p>
+            <p>
+              <a href="mailto:etteobong1970@gmail.com">
+                etteobong1970@gmail.com
+              </a>
+            </p>
           </div>
         </div>
+
         <div class="contact-item">
           <div class="contact-icon" aria-hidden="true">📱</div>
           <div>
@@ -467,13 +1231,22 @@ footer p { opacity:0.8; font-size:0.9rem; }
             <p><a href="tel:+2348020516991">0802 051 6991</a></p>
           </div>
         </div>
+
         <div class="contact-item">
           <div class="contact-icon" aria-hidden="true">💬</div>
           <div>
             <h4>WhatsApp</h4>
-            <p><a href="https://wa.me/2348032379455?text=Hello%20EKANDIWILL%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer">Chat with us instantly →</a></p>
+            <p>
+              <a
+                href="https://wa.me/2348032379455?text=Hello%20EKANDIWILL%2C%20I%27d%20like%20to%20book%20an%20appointment."
+                target="_blank"
+                rel="noopener noreferrer">
+                Chat with us instantly →
+              </a>
+            </p>
           </div>
         </div>
+
         <div class="contact-item">
           <div class="contact-icon" aria-hidden="true">🕒</div>
           <div>
@@ -481,30 +1254,38 @@ footer p { opacity:0.8; font-size:0.9rem; }
             <p>Mon–Sat: [add hours] · Sun: [add hours]</p>
           </div>
         </div>
+
       </div>
 
       <div class="fade-in">
+
         <div class="success-message" id="successMsg" role="status" aria-live="polite">
-          ✓ Your email app will open with everything filled in — just hit Send! Or message us on WhatsApp for an instant reply.
+          ✓ Your email app will open with everything filled in — just hit Send!
+          Or message us on WhatsApp for an instant reply.
         </div>
+
         <form id="appointmentForm">
+
           <label for="fname" class="sr-only">Your Name</label>
-          <input type="text" id="fname" name="name" placeholder="Your Name" required>
+          <input type="text" id="fname" name="name"
+                 placeholder="Your Name" autocomplete="name" required>
 
           <label for="femail" class="sr-only">Your Email</label>
-          <input type="email" id="femail" name="email" placeholder="Your Email" required>
+          <input type="email" id="femail" name="email"
+                 placeholder="Your Email" autocomplete="email" required>
 
           <label for="fphone" class="sr-only">Phone Number</label>
-          <input type="tel" id="fphone" name="phone" placeholder="Phone Number" required>
+          <input type="tel" id="fphone" name="phone"
+                 placeholder="Phone Number" autocomplete="tel" required>
 
           <label for="fservice" class="sr-only">Select Service</label>
           <select id="fservice" name="service" required>
-            <option value="">Select Service</option>
+          <option value="">Select Service</option>
             <option value="Back Pain Treatment">Back Pain Treatment</option>
-            <option value="Stroke & Paralysis">Stroke & Paralysis</option>
+            <option value="Stroke & Paralysis">Stroke &amp; Paralysis</option>
             <option value="Arthritis Management">Arthritis Management</option>
             <option value="Sports Injuries">Sports Injuries</option>
-            <option value="Stress & Wellness">Stress & Wellness</option>
+            <option value="Stress & Wellness">Stress &amp; Wellness</option>
             <option value="Acupuncture">Acupuncture</option>
             <option value="Other">Other</option>
           </select>
@@ -514,6 +1295,7 @@ footer p { opacity:0.8; font-size:0.9rem; }
               <label for="fdate" class="sr-only">Preferred Date</label>
               <input type="date" id="fdate" name="preferred_date">
             </div>
+
             <div>
               <label for="ftime" class="sr-only">Preferred Time</label>
               <select id="ftime" name="preferred_time">
@@ -526,34 +1308,58 @@ footer p { opacity:0.8; font-size:0.9rem; }
           </div>
 
           <label for="fmessage" class="sr-only">Tell us about your condition</label>
-          <textarea id="fmessage" name="message" placeholder="Tell us about your condition..." rows="4"></textarea>
+          <textarea id="fmessage" name="message"
+                    placeholder="Tell us about your condition..."
+                    rows="4"></textarea>
 
           <button type="submit">Request Appointment</button>
+
         </form>
       </div>
+
     </div>
   </div>
 </section>
 
-<a href="https://wa.me/2348032379455?text=Hello%20EKANDIWILL%2C%20I%27d%20like%20to%20book%20an%20appointment."
-   class="whatsapp-float" target="_blank" rel="noopener noreferrer"
-   aria-label="Chat with us on WhatsApp" title="Chat on WhatsApp">
+<!-- FLOATING WHATSAPP BUTTON -->
+
+<a
+  href="https://wa.me/2348032379455?text=Hello%20EKANDIWILL%2C%20I%27d%20like%20to%20book%20an%20appointment."
+  class="whatsapp-float"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chat with us on WhatsApp"
+  title="Chat on WhatsApp">
+
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.09-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.69 0-3.27-.51-4.58-1.38l-.33-.2-3.02.79.81-2.95-.21-.34A7.96 7.96 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/>
   </svg>
 </a>
+<!-- FOOTER -->
 
 <footer>
   <div class="container">
-    <p>&copy; <span id="year"></span> EKANDIWILL Physiotherapy & Health Care. All rights reserved.</p>
+
+    <p>
+      &copy; <span id="year"></span>
+      EKANDIWILL Physiotherapy &amp; Health Care. All rights reserved.
+    </p>
+
     <div class="footer-links">
       <a href="#services">Services</a>
       <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#testimonial">Testimonials</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </div>
+
     <p style="margin-top:0.5rem;">RC: 1062669 · "In God We Trust"</p>
-    <p class="footer-credit">Website by <a href="#">FrankBuilds +2349021907518</a></p>
+
+    <p class="footer-credit">
+      Website by <a href="#">FrankBuilds +2349021907518</a>
+    </p>
+
   </div>
 </footer>
 
@@ -561,23 +1367,46 @@ footer p { opacity:0.8; font-size:0.9rem; }
 (function () {
   'use strict';
 
+  // Current year
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  // Prevent selection of past appointment dates.
+  // Uses the visitor's local calendar date.
   var dateInput = document.getElementById('fdate');
-  if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
 
+  function setMinimumDate() {
+    if (!dateInput) return;
+
+    var now = new Date();
+    var localDate =
+      now.getFullYear() + '-' +
+      String(now.getMonth() + 1).padStart(2, '0') + '-' +
+      String(now.getDate()).padStart(2, '0');
+
+    dateInput.min = localDate;
+  }
+
+  setMinimumDate();
+
+  // Header shadow on scroll
   var header = document.querySelector('header');
+
   window.addEventListener('scroll', function () {
     header.classList.toggle('scrolled', window.scrollY > 10);
   }, { passive: true });
 
+  // Keep the mobile navigation aligned below the header.
   function setHeaderH() {
-    document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+    document.documentElement.style.setProperty(
+      '--header-h',
+      header.offsetHeight + 'px'
+    );
   }
+
   setHeaderH();
   window.addEventListener('resize', setHeaderH);
 
-  /* ── Hamburger ── */
+  // Mobile navigation
   var hamburger = document.getElementById('hamburger');
   var mobileNav = document.getElementById('primaryNav');
 
@@ -586,71 +1415,100 @@ footer p { opacity:0.8; font-size:0.9rem; }
     hamburger.classList.remove('active');
     hamburger.setAttribute('aria-expanded', 'false');
   }
+
   hamburger.addEventListener('click', function () {
-    var open = mobileNav.classList.toggle('open');
-    hamburger.classList.toggle('active', open);
-    hamburger.setAttribute('aria-expanded', String(open));
-  });
-  mobileNav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeNav); });
-  document.addEventListener('click', function (e) {
-    if (!mobileNav.contains(e.target) && !hamburger.contains(e.target)) closeNav();
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeNav();
+    var isOpen = mobileNav.classList.toggle('open');
+
+    hamburger.classList.toggle('active', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
   });
 
-  /* ── Scroll reveal ── */
+  mobileNav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', closeNav);
+  });
+
+  document.addEventListener('click', function (event) {
+    if (
+      !mobileNav.contains(event.target) &&
+      !hamburger.contains(event.target)
+    ) {
+      closeNav();
+    }
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      closeNav();
+    }
+  });
+
+  // Scroll reveal animations
   var items = document.querySelectorAll('.fade-in');
+
   if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
       });
     }, { threshold: 0.12 });
-    items.forEach(function (el) { io.observe(el); });
+
+    items.forEach(function (item) {
+      observer.observe(item);
+    });
   } else {
-    items.forEach(function (el) { el.classList.add('visible'); });
+    items.forEach(function (item) {
+      item.classList.add('visible');
+    });
   }
 
-  /* ── FAQ accordion ── */
-  document.querySelectorAll('.faq-question').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var item = btn.closest('.faq-item');
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var item = button.closest('.faq-item');
       var isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(function (el) {
-        el.classList.remove('open');
-        el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+
+      document.querySelectorAll('.faq-item.open').forEach(function (openItem) {
+        openItem.classList.remove('open');
+
+        openItem.querySelector('.faq-question')
+          .setAttribute('aria-expanded', 'false');
       });
+
       if (!isOpen) {
         item.classList.add('open');
-        btn.setAttribute('aria-expanded', 'true');
+        button.setAttribute('aria-expanded', 'true');
       }
     });
   });
 
-  /* ── mailto form ── */
-  var form       = document.getElementById('appointmentForm');
+  // Appointment form
+  // Opens the visitor's email application with the appointment details.
+  var form = document.getElementById('appointmentForm');
   var successMsg = document.getElementById('successMsg');
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
 
-    var name    = document.getElementById('fname').value.trim();
-    var email   = document.getElementById('femail').value.trim();
-    var phone   = document.getElementById('fphone').value.trim();
+    var name = document.getElementById('fname').value.trim();
+    var email = document.getElementById('femail').value.trim();
+    var phone = document.getElementById('fphone').value.trim();
     var service = document.getElementById('fservice').value;
-    var date    = document.getElementById('fdate').value;
-    var time    = document.getElementById('ftime').value;
+    var date = document.getElementById('fdate').value;
+    var time = document.getElementById('ftime').value;
     var message = document.getElementById('fmessage').value.trim();
 
     var subject = 'New Appointment Request – EKANDIWILL';
+
     var body =
       'APPOINTMENT REQUEST\n' +
       '====================\n\n' +
-      'Name:           ' + name    + '\n' +
-      'Email:          ' + email   + '\n' +
-      'Phone:          ' + phone   + '\n' +
-      'Service:        ' + service + '\n' +
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      'Phone: ' + phone + '\n' +
+      'Service: ' + service + '\n' +
       'Preferred Date: ' + (date || 'Not specified') + '\n' +
       'Preferred Time: ' + (time || 'Not specified') + '\n\n' +
       'Message:\n' + (message || 'No additional message.') + '\n\n' +
@@ -660,15 +1518,27 @@ footer p { opacity:0.8; font-size:0.9rem; }
     var mailto =
       'mailto:etteobong1970@gmail.com' +
       '?subject=' + encodeURIComponent(subject) +
-      '&body='    + encodeURIComponent(body);
+      '&body=' + encodeURIComponent(body);
 
-    window.location.href = mailto;
     successMsg.classList.add('show');
-    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    form.reset();
+
+    successMsg.textContent =
+      'Your email app should open with the appointment details. ' +
+      'Please send the email to complete your request. ' +
+      'You can also contact us on WhatsApp.';
+
+    successMsg.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+
+    // Do not clear the form before the visitor has a chance
+    // to review their details if the email application does not open.
+    window.location.href = mailto;
   });
 
 })();
 </script>
+
 </body>
-</html>
+</html> 
